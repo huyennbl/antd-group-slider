@@ -1,0 +1,15 @@
+.antd-group-slider__footer {
+  margin-top: 1rem;
+}
+.antd-group-slider__btn-remove-range {
+  width: 100%;
+}
+.antd-group-slider__btn-add-range {
+  width: 100%;
+}
+
+.ant-slider-handle.ant-slider-handle-1 {
+  /* make left slider slim */
+  border-radius: 0%;
+  width: 0px;
+}
