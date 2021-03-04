@@ -10,6 +10,14 @@ const GroupSlider = ({ min = DEFAULT_LEFT, max = DEFAULT_RIGHT, ...props }) => {
   const [descriptions, setDescriptions] = useState([])
 
   useEffect(() => {
+    if (props.initialValues) {
+      const { ranges, descriptions } = props.initialValues
+      setRanges(ranges)
+      setDescriptions(descriptions)
+    }
+  }, [])
+
+  useEffect(() => {
     if (props.onChange) {
       props.onChange({ ranges, descriptions })
     }
