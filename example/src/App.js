@@ -19,16 +19,28 @@ const App = () => {
         <a
           href='https://www.npmjs.com/package/antd-group-slider'
           target='_blank'
+          rel='noopener noreferrer'
         >
           https://www.npmjs.com/package/antd-group-slider
         </a>
       </h3>
       <h3>
         GitHub:{' '}
-        <a href='https://github.com/huyennbl/antd-group-slider' target='_blank'>
+        <a
+          href='https://github.com/huyennbl/antd-group-slider'
+          target='_blank'
+          rel='noopener noreferrer'
+        >
           https://github.com/huyennbl/antd-group-slider
         </a>
       </h3>
+      <paragraph class='intro'>
+        <strong>antd-group-slider</strong> provides a group of sliders that help
+        input data with multiple ranges & description. It has data sync between
+        sliders that will automatically fill the missing gap, hence improve UX,
+        which help the user to avoid accidental missing range during inputting
+        data.
+      </paragraph>
       <div className='example'>
         <div className='example__code'>
           <pre>{'<GroupSlider />'}</pre>

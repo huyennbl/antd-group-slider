@@ -1,3 +1,9 @@
+.intro {
+  width: 40vw;
+  letter-spacing: 0.3px;
+  text-align: justify;
+  margin-top: 3rem;
+}
 .antd-group-slider__footer {
   margin-top: 1rem;
 }
