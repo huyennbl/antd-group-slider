@@ -41,6 +41,17 @@ const App = () => {
         which help the user to avoid accidental missing range during inputting
         data.
       </paragraph>
+      <paragraph class='note'>
+        Please first have a look at{' '}
+        <a
+          target='_blank'
+          rel='noopener noreferrer'
+          href='https://ant.design/components/slider/'
+        >
+          Ant Slider
+        </a>{' '}
+        to have a general idea of the use case of this component.
+      </paragraph>
       <div className='example'>
         <div className='example__code'>
           <pre>{'<GroupSlider />'}</pre>
