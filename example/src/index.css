@@ -16,7 +16,7 @@ code {
 .example {
   border: lightgrey solid 3px;
   border-radius: 1rem;
-  margin-top: 3rem;
+  margin-top: 4rem;
   padding: 1rem 1rem 1.5rem 1rem;
   width: 40%;
 }
@@ -25,4 +25,5 @@ code {
   background-color: #eee;
   padding-left: 0.5rem;
   border-radius: 0.5rem;
+  margin-bottom: 2rem;
 }

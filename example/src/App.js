@@ -88,6 +88,7 @@ const App = () => {
       <div className='example'>
         <div className='example__code'>
           <pre>{`<GroupSlider
+  descriptionConfig={{
     type: 'none'
   }}
 />`}</pre>
@@ -97,6 +98,13 @@ const App = () => {
             type: 'none'
           }}
         />
+      </div>
+
+      <div className='example'>
+        <div className='example__code'>
+          <pre>{`<GroupSlider showDivider />`}</pre>
+        </div>
+        <GroupSlider showDivider />
       </div>
     </div>
   )
