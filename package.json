@@ -1,6 +1,6 @@
 {
   "name": "antd-group-slider",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Grouped slider based on ant-design",
   "author": "huyennbl",
   "license": "MIT",
@@ -23,6 +23,23 @@
     "predeploy": "cd example && npm install && npm run build",
     "deploy": "gh-pages -d example/build"
   },
+  "keywords": [
+    "ant",
+    "antd",
+    "slider",
+    "sliders",
+    "ant-slider",
+    "antd-slider",
+    "ant-group-slider",
+    "ant-grouped-slider",
+    "antd-group-slider",
+    "antd-grouped-slider",
+    "range",
+    "range input",
+    "range input",
+    "ranges",
+    "ranges input"
+  ],
   "peerDependencies": {
     "antd": "4.x",
     "react": "^16.8.0 || ^17.0.0"

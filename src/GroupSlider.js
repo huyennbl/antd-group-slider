@@ -17,9 +17,20 @@ const GroupSlider = ({ min = DEFAULT_LEFT, max = DEFAULT_RIGHT, ...props }) => {
     }
   }, [])
 
+  const isFullRange = () => {
+    const values = new Set()
+    ranges.forEach((r) => {
+      const [left, right] = r
+      for (let i = left; i <= right; i++) {
+        if (i >= 0 && i <= 100) values.add(i)
+      }
+    })
+    return values.size === parseInt(max) + 1
+  }
+
   useEffect(() => {
     if (props.onChange) {
-      props.onChange({ ranges, descriptions })
+      props.onChange({ ranges, descriptions, isFullRange: isFullRange() })
     }
   }, [ranges, descriptions])
 
