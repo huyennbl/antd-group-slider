@@ -1,9 +1,21 @@
 import React, { useState, useEffect } from 'react'
-import { Button, Divider, Col, Row } from 'antd'
+import { Button, Divider, Col, Row, Tooltip } from 'antd'
 import GroupSliderLine from './GroupSliderLine'
 import './styles.css'
 const DEFAULT_LEFT = 0
 const DEFAULT_RIGHT = 100
+
+const TooltipAddButton = ({ children }) => {
+  return (
+    <Tooltip
+      trigger='hover'
+      placement='top'
+      title='Only can add range if the point range is not fully covered'
+    >
+      {children}
+    </Tooltip>
+  )
+}
 
 const GroupSlider = ({ min = DEFAULT_LEFT, max = DEFAULT_RIGHT, ...props }) => {
   const [ranges, setRanges] = useState([[min, max]])
@@ -103,20 +115,27 @@ const GroupSlider = ({ min = DEFAULT_LEFT, max = DEFAULT_RIGHT, ...props }) => {
 
   const removeText = props.removeButtonText || 'Remove last range'
   const addText = props.addButtonText || 'Add more range'
+  const addButton = (
+    <Button
+      className='antd-group-slider__btn-add-range'
+      disabled={isAbleToAddRange()}
+      ghost
+      type='primary'
+      onClick={addRange}
+    >
+      {addText}
+    </Button>
+  )
   return (
     <div className='antd-group-slider'>
       {renderPointRangeGroupLine()}
       <Row className='antd-group-slider__footer' gutter={4}>
         <Col span={12}>
-          <Button
-            className='antd-group-slider__btn-add-range'
-            disabled={isAbleToAddRange()}
-            ghost
-            type='primary'
-            onClick={addRange}
-          >
-            {addText}
-          </Button>
+          {isFullRange() ? (
+            <TooltipAddButton>{addButton}</TooltipAddButton>
+          ) : (
+            addButton
+          )}
         </Col>
         <Col span={12}>
           <Button
