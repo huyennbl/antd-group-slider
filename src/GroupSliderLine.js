@@ -81,7 +81,15 @@ class GroupSliderLine extends React.Component {
         </SideTextDescription>
       )
     }
-    return <Input.TextArea {...inputProps} />
+    return (
+      <SideTextDescription
+        range={range}
+        leftText={renderRangeInText(range, leftText, separator)}
+        rightText={renderRangeInText(range, rightText, separator)}
+      >
+        <Input.TextArea {...inputProps} />
+      </SideTextDescription>
+    )
   }
 
   render() {

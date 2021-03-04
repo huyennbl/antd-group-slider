@@ -4,6 +4,10 @@
 
 [![NPM](https://img.shields.io/npm/v/antd-group-slider.svg)](https://www.npmjs.com/package/antd-group-slider) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
+## Live demo
+
+[https://huyennbl.github.io/antd-group-slider/](https://huyennbl.github.io/antd-group-slider/)
+
 ## Prerequisite
 
 ```

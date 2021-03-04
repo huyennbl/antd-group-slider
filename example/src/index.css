@@ -1,6 +1,6 @@
 body {
-  margin: 0;
-  padding: 0;
+  margin: 1rem;
+  padding: 1rem;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
@@ -11,4 +11,18 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.example {
+  border: lightgrey solid 3px;
+  border-radius: 1rem;
+  margin-top: 3rem;
+  padding: 1rem 1rem 1.5rem 1rem;
+  width: 40%;
+}
+
+.example__code {
+  background-color: #eee;
+  padding-left: 0.5rem;
+  border-radius: 0.5rem;
 }
