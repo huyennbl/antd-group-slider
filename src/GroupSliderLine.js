@@ -1,7 +1,26 @@
 import React from 'react'
 import { Input, Slider } from 'antd'
+import { renderRangeInText } from './utils'
 import './styles.css'
+
 const DEFAULT_PLACEHOLDER = 'Description for range {{range}}'
+
+const SideTextDescription = ({ leftText, rightText, children }) => {
+  return (
+    <div className='antd-group-slider-item__description'>
+      <div className='antd-group-slider-item__description-left-text'>
+        {leftText}
+      </div>
+
+      {children}
+
+      <div className='antd-group-slider-item__description-right-text'>
+        {rightText}
+      </div>
+    </div>
+  )
+}
+
 class GroupSliderLine extends React.Component {
   state = {
     right: this.props.value[1],
@@ -23,35 +42,46 @@ class GroupSliderLine extends React.Component {
     }
   }
   renderDescription = () => {
-    const { placeholder, descriptionType } = this.props
-    const placeholderDesc = placeholder && placeholder.description
-    const placeholderSeparator = placeholder && placeholder.separator
+    const descriptionConfig = this.props.descriptionConfig || {}
+    const {
+      placeholder,
+      type,
+      separator,
+      leftText,
+      leftAddonText,
+      rightText,
+      rightAddonText
+    } = descriptionConfig
+    if (type === 'none') {
+      return <React.Fragment />
+    }
+
+    const range = [this.state.left, this.state.right]
     const inputProps = {
       className: 'antd-group-slider-item__description',
-      placeholder: this.renderPlaceholderText(
-        placeholderDesc,
-        placeholderSeparator
-      ),
+      placeholder: placeholder
+        ? renderRangeInText(range, placeholder, separator)
+        : renderRangeInText(range, DEFAULT_PLACEHOLDER, separator),
       defaultValue: this.props.initialDescription,
       onChange: (e) => this.props.updateDescription(e.target.value)
     }
-    if (descriptionType === 'none') {
-      return <React.Fragment />
-    }
-    if (descriptionType === 'input') {
-      return <Input {...inputProps} />
+
+    if (type === 'input') {
+      const inputPropsWithAddon = Object.assign({}, inputProps, {
+        addonBefore: renderRangeInText(range, leftAddonText, separator),
+        addonAfter: renderRangeInText(range, rightAddonText, separator)
+      })
+      return (
+        <SideTextDescription
+          range={range}
+          leftText={renderRangeInText(range, leftText, separator)}
+          rightText={renderRangeInText(range, rightText, separator)}
+        >
+          <Input {...inputPropsWithAddon} />
+        </SideTextDescription>
+      )
     }
     return <Input.TextArea {...inputProps} />
-  }
-
-  renderPlaceholderText = (
-    input = DEFAULT_PLACEHOLDER,
-    rangeSeparator = '-'
-  ) => {
-    return input.replace(
-      /{{range}}/,
-      `${this.state.left}${rangeSeparator}${this.state.right}`
-    )
   }
 
   render() {

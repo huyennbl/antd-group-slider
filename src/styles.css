@@ -8,6 +8,18 @@
   width: 100%;
 }
 
+.antd-group-slider-item__description {
+  display: flex;
+  align-items: center;
+}
+.antd-group-slider-item__description-left-text {
+  margin-right: 0.25rem;
+  white-space: nowrap;
+}
+.antd-group-slider-item__description-right-text {
+  margin-left: 0.25rem;
+  white-space: nowrap;
+}
 .ant-slider-handle.ant-slider-handle-1 {
   /* make left slider slim */
   border-radius: 0%;

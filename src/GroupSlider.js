@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Button, Col, Row } from 'antd'
+import { Button, Divider, Col, Row } from 'antd'
 import GroupSliderLine from './GroupSliderLine'
 import './styles.css'
 const DEFAULT_LEFT = 0
@@ -56,17 +56,18 @@ const GroupSlider = ({ min = DEFAULT_LEFT, max = DEFAULT_RIGHT, ...props }) => {
   const renderPointRangeGroupLine = () => {
     return ranges.map((range, i) => {
       return (
-        <GroupSliderLine
-          marks={props.marks}
-          placeholder={props.placeholder}
-          descriptionType={props.descriptionType}
-          onAfterRangeChange={(data) => syncRange(data, i)}
-          updateDescription={(data) => updateDescription(data, i)}
-          initialDescription={descriptions[i]}
-          value={range}
-          key={range}
-          max={max}
-        />
+        <React.Fragment key={range}>
+          <GroupSliderLine
+            marks={props.marks}
+            descriptionConfig={props.descriptionConfig}
+            onAfterRangeChange={(data) => syncRange(data, i)}
+            updateDescription={(data) => updateDescription(data, i)}
+            initialDescription={descriptions[i]}
+            value={range}
+            max={max}
+          />
+          {props.showDivider ? <Divider /> : <React.Fragment />}
+        </React.Fragment>
       )
     })
   }
