@@ -92,7 +92,7 @@ const App = () => {
       [0, 25],
       [50, 100]
     ],
-    descriptions: ['First', 'Third']
+    descriptions: ['First', 'Second']
   }}
   initialValuesConfig={{
     fillGaps: false
