@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Button, Divider, Col, Row, Tooltip } from 'antd'
 import GroupSliderLine from './GroupSliderLine'
+import { fillGaps, syncRanges } from './rangeUtils'
 import './styles.css'
 const DEFAULT_LEFT = 0
 const DEFAULT_RIGHT = 100
@@ -23,7 +24,8 @@ const GroupSlider = ({ min = DEFAULT_LEFT, max = DEFAULT_RIGHT, ...props }) => {
 
   useEffect(() => {
     if (props.initialValues) {
-      const { ranges, descriptions } = props.initialValues
+      const processedInitialValues = fillGaps(props.initialValues)
+      const { ranges, descriptions } = processedInitialValues
       setRanges(ranges)
       setDescriptions(descriptions)
     }
@@ -54,20 +56,9 @@ const GroupSlider = ({ min = DEFAULT_LEFT, max = DEFAULT_RIGHT, ...props }) => {
     setRanges(newRanges)
   }
 
-  const syncRange = (range, index) => {
-    let currentRight = range[1]
-    const rightNeighbor = ranges[index + 1]
-    if (rightNeighbor) {
-      const nextRight = rightNeighbor[1]
-      if (currentRight >= nextRight - 1) {
-        currentRight = nextRight - 2
-        rightNeighbor[0] = rightNeighbor[1] - 1
-      } else {
-        rightNeighbor[0] = currentRight + 1
-      }
-    }
-    ranges[index][1] = currentRight
-    setRanges([...ranges])
+  const syncNewRange = (updatedRange, index) => {
+    const nextRanges = syncRanges(ranges, updatedRange, index)
+    setRanges(nextRanges)
   }
 
   const updateDescription = (description, index) => {
@@ -83,7 +74,7 @@ const GroupSlider = ({ min = DEFAULT_LEFT, max = DEFAULT_RIGHT, ...props }) => {
           <GroupSliderLine
             marks={props.marks}
             descriptionConfig={props.descriptionConfig}
-            onAfterRangeChange={(data) => syncRange(data, i)}
+            onAfterRangeChange={(data) => syncNewRange(data, i)}
             updateDescription={(data) => updateDescription(data, i)}
             initialDescription={descriptions[i]}
             value={range}
