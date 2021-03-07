@@ -13,7 +13,11 @@ const App = () => {
         alignItems: 'center'
       }}
     >
-      <h1 style={{ color: 'darkred' }}>antd-group-slider</h1>
+      <div className='header'>
+        <div className='header__title'>antd-group-slider</div>
+        <img className='header__logo' src='./favicon.png' alt='logo' />
+      </div>
+
       <h3>
         NPM:{' '}
         <a

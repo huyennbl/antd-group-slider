@@ -28,6 +28,24 @@ code {
   margin-bottom: 2rem;
 }
 
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.header__title {
+  color: darkred;
+  font-weight: 600;
+  font-size: 24pt;
+}
+
+.header__logo {
+  max-height: 2.5rem;
+  margin-left: 1rem;
+}
+
 .intro {
   width: 40vw;
   letter-spacing: 0.2px;
