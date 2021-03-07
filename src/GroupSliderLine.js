@@ -107,7 +107,6 @@ class GroupSliderLine extends React.Component {
           value={[left, right]}
           onChange={this.onChange}
           onAfterChange={(val) => {
-            console.log(this.props)
             this.props.onAfterRangeChange(val)
             this.setState({
               right: this.props.value[1],

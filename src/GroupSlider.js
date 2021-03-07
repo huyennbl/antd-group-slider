@@ -24,7 +24,10 @@ const GroupSlider = ({ min = DEFAULT_LEFT, max = DEFAULT_RIGHT, ...props }) => {
 
   useEffect(() => {
     if (props.initialValues) {
-      const processedInitialValues = fillGaps(props.initialValues)
+      const processedInitialValues = fillGaps(
+        props.initialValues,
+        props.initialValuesConfig
+      )
       const { ranges, descriptions } = processedInitialValues
       setRanges(ranges)
       setDescriptions(descriptions)
