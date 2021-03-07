@@ -1,17 +1,3 @@
-.intro {
-  width: 40vw;
-  letter-spacing: 0.2px;
-  text-align: justify;
-  margin-top: 3rem;
-}
-
-.note {
-  margin-top: 1rem;
-  color: #666;
-  width: 40vw;
-  letter-spacing: 0.3px;
-}
-
 .antd-group-slider__footer {
   margin-top: 1rem;
 }

@@ -34,14 +34,14 @@ const App = () => {
           https://github.com/huyennbl/antd-group-slider
         </a>
       </h3>
-      <paragraph class='intro'>
+      <p className='intro'>
         <strong>antd-group-slider</strong> provides a group of sliders that help
         input data with multiple ranges & description. It has data sync between
         sliders that will automatically fill the missing gap, hence improve UX,
         which help the user to avoid accidental missing range during inputting
         data.
-      </paragraph>
-      <paragraph class='note'>
+      </p>
+      <p className='note'>
         Please first have a look at{' '}
         <a
           target='_blank'
@@ -51,12 +51,62 @@ const App = () => {
           Ant Slider
         </a>{' '}
         to have a general idea of the use case of this component.
-      </paragraph>
+      </p>
       <div className='example'>
         <div className='example__code'>
           <pre>{'<GroupSlider />'}</pre>
         </div>
         <GroupSlider />
+      </div>
+      <div className='example'>
+        <div className='example__code'>
+          <pre>{`<GroupSlider 
+  initialValues={{
+    ranges: [
+      [0, 25],
+      [50, 100]
+    ],
+    descriptions: ['First', 'Third']
+  }}
+/>`}</pre>
+        </div>
+        <GroupSlider
+          initialValues={{
+            ranges: [
+              [0, 25],
+              [50, 100]
+            ],
+            descriptions: ['First', 'Third']
+          }}
+        />
+      </div>
+      <div className='example'>
+        <div className='example__code'>
+          <pre>{`<GroupSlider 
+  initialValues={{
+    ranges: [
+      [0, 25],
+      [50, 100]
+    ],
+    descriptions: ['First', 'Third']
+  }}
+  initialValuesConfig={{
+    fillGaps: false
+  }}
+/>`}</pre>
+        </div>
+        <GroupSlider
+          initialValues={{
+            ranges: [
+              [0, 25],
+              [50, 100]
+            ],
+            descriptions: ['First', 'Second']
+          }}
+          initialValuesConfig={{
+            fillGaps: false
+          }}
+        />
       </div>
 
       <div className='example'>
