@@ -2,7 +2,7 @@
 
 > Grouped-sliders based on ant-design
 
-> <b>antd-group-slider</b> provides a group of sliders that help input data with multiple ranges & description. It has data sync between sliders that will automatically fill the missing gap, hence improve UX, which help the user to avoid accidental missing range during inputting data.
+> <b>antd-group-slider</b> provides a group of sliders that help to input multiple related range-data. It has data sync between sliders on every range change that which would help the user to avoid accidental missing range during actions.
 
 > Please first have a look at [Ant Slider](https://ant.design/components/slider/) to have a general idea of the use case of this component.
 
