@@ -33,10 +33,10 @@ class GroupSliderLine extends React.Component {
       right: Math.max(this.state.left, nextRight)
     })
   }
-  calculateMarks = (max) => {
-    const mid = Math.floor(max / 2)
+  calculateMarks = (min = 0, max) => {
+    const mid = Math.floor((max + min) / 2)
     return {
-      0: '0',
+      [min]: min.toString(),
       [mid]: mid.toString(),
       [max]: max.toString()
     }
@@ -94,14 +94,14 @@ class GroupSliderLine extends React.Component {
 
   render() {
     const { left, right } = this.state
-    const marks = this.props.marks || this.calculateMarks(this.props.max)
+    const marks = this.props.marks || this.calculateMarks(this.props.min, this.props.max)
 
     return (
       <div className='antd-group-slider-item'>
         <Slider
           className='antd-group-slider-item__slider'
           range
-          min={0}
+          min={this.props.min}
           max={this.props.max}
           marks={marks}
           value={[left, right]}

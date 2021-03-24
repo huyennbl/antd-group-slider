@@ -1,5 +1,5 @@
-export function syncRanges(inputRanges, range, index) {
-  let ranges = [...inputRanges]
+export function syncRanges (inputRanges, range, index) {
+  const ranges = [...inputRanges]
   let currentRight = range[1]
   const rightNeighbor = ranges[index + 1]
   if (rightNeighbor) {
@@ -15,16 +15,16 @@ export function syncRanges(inputRanges, range, index) {
   return ranges
 }
 
-export function fillGaps(data, config = { fillGaps: true }) {
+export function fillGaps (data, config = { fillGaps: true }) {
   if (!config.fillGaps) return data
   if (data.ranges && data.ranges.length < 2) return data
   const { descriptions } = data
-  let ranges = standardizeRanges(data.ranges)
-  let output = fillMissingGaps(ranges, descriptions)
+  const ranges = standardizeRanges(data.ranges)
+  const output = fillMissingGaps(ranges, descriptions)
   return output
 }
 
-function standardizeRanges(ranges) {
+function standardizeRanges (ranges) {
   // return a new array that
   // 1 - ensure left value of each range is always <= right value
   // 2 - sort ranges by left values of each range
@@ -36,13 +36,13 @@ function standardizeRanges(ranges) {
   })
 }
 
-function enoughForNewRange(ranges, leftIndex, rightIndex) {
+function enoughForNewRange (ranges, leftIndex, rightIndex) {
   return ranges[rightIndex][0] - ranges[leftIndex][1] > 1
 }
 
-function fillMissingGaps(inputRanges, inputDescriptions) {
-  let ranges = [...inputRanges]
-  let descriptions = [...inputDescriptions]
+function fillMissingGaps (inputRanges, inputDescriptions) {
+  const ranges = [...inputRanges]
+  const descriptions = [...inputDescriptions]
   for (let rightIndex = ranges.length - 1; rightIndex > 0; rightIndex--) {
     const leftIndex = rightIndex - 1
     if (enoughForNewRange(ranges, leftIndex, rightIndex)) {
@@ -54,7 +54,7 @@ function fillMissingGaps(inputRanges, inputDescriptions) {
   return { ranges, descriptions }
 }
 
-function calculateMissingRange(ranges, leftIndex, rightIndex) {
+function calculateMissingRange (ranges, leftIndex, rightIndex) {
   const left = ranges[leftIndex][1] + 1
   const right = ranges[rightIndex][0] - 1
   return [left, right]

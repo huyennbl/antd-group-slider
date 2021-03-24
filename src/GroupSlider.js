@@ -29,6 +29,13 @@ const GroupSlider = ({ min = DEFAULT_LEFT, max = DEFAULT_RIGHT, ...props }) => {
         props.initialValuesConfig
       )
       const { ranges, descriptions } = processedInitialValues
+      // set leftMost & rightMost value to equal min & max 
+      const leftMost = ranges[0][0]
+      ranges[0][0] = Math.max(min, leftMost)
+      const lastIndex =  ranges.length - 1
+      const rightMost = ranges[lastIndex][1]
+      ranges[lastIndex][1] = Math.min(max, rightMost)
+
       setRanges(ranges)
       setDescriptions(descriptions)
     }
@@ -82,6 +89,7 @@ const GroupSlider = ({ min = DEFAULT_LEFT, max = DEFAULT_RIGHT, ...props }) => {
             initialDescription={descriptions[i]}
             value={range}
             max={max}
+            min={min}
           />
           {props.showDivider ? <Divider /> : <React.Fragment />}
         </React.Fragment>

@@ -1,5 +1,5 @@
 const DEFAULT_SEPARATOR = '-'
-export function renderRangeInText(
+export function renderRangeInText (
   range,
   text = '',
   separator = DEFAULT_SEPARATOR

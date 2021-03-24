@@ -63,7 +63,7 @@ const App = () => {
       </div>
       <div className='example'>
         <div className='example__code'>
-          <pre>{`<GroupSlider 
+          <pre>{`<GroupSlider
   initialValues={{
     ranges: [
       [0, 25],
@@ -85,7 +85,7 @@ const App = () => {
       </div>
       <div className='example'>
         <div className='example__code'>
-          <pre>{`<GroupSlider 
+          <pre>{`<GroupSlider
   initialValues={{
     ranges: [
       [0, 25],
@@ -96,7 +96,8 @@ const App = () => {
   initialValuesConfig={{
     fillGaps: false
   }}
-/>`}</pre>
+/>`}
+          </pre>
         </div>
         <GroupSlider
           initialValues={{
@@ -115,12 +116,15 @@ const App = () => {
       <div className='example'>
         <div className='example__code'>
           <pre>{`<GroupSlider
+  min={100}
   max={500}
   addButtonText='More range'
   removeButtonText='Remove last'
-/>`}</pre>
+/>`}
+          </pre>
         </div>
         <GroupSlider
+          min={100}
           max={500}
           addButtonText='More range'
           removeButtonText='Remove last'
@@ -178,7 +182,7 @@ const App = () => {
 
       <div className='example'>
         <div className='example__code'>
-          <pre>{`<GroupSlider showDivider />`}</pre>
+          <pre>{'<GroupSlider showDivider />'}</pre>
         </div>
         <GroupSlider showDivider />
       </div>
