@@ -41,6 +41,10 @@ const GroupSlider = ({ min = DEFAULT_LEFT, max = DEFAULT_RIGHT, ...props }) => {
     }
   }, [])
 
+  useEffect(() => {
+    ranges[0][0] = min   
+  }, [min])
+  
   const isFullRange = () => {
     const values = new Set()
     ranges.forEach((r) => {
