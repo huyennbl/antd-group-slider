@@ -99,7 +99,8 @@ const GroupSlider = ({ min = DEFAULT_LEFT, max = DEFAULT_RIGHT, ...props }) => {
 
   const isAbleToAddRange = () => {
     const lastIndex = ranges.length - 1
-    return ranges[lastIndex][1] > max - 2
+    const rightMost = ranges[lastIndex][1]
+    return  rightMost > max - 1
   }
 
   const cannotRemoveRange = () => {
