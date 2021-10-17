@@ -97,7 +97,7 @@ const GroupSlider = ({ min = DEFAULT_LEFT, max = DEFAULT_RIGHT, ...props }) => {
             max={max}
             min={min}
           />
-          {props.showDivider ? <Divider /> : <></>}
+          {props.showDivider ? <Divider /> : <React.Fragment />}
         </React.Fragment>
       )
     })
