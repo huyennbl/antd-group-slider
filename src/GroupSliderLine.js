@@ -115,6 +115,7 @@ class GroupSliderLine extends React.Component {
           }}
         />
         {this.renderDescription()}
+        {this.props.extra ? this.props.extra : <React.Fragment />}
       </div>
     )
   }

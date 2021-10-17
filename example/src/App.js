@@ -71,7 +71,8 @@ const App = () => {
     ],
     descriptions: ['First', 'Third']
   }}
-/>`}</pre>
+/>`}
+          </pre>
         </div>
         <GroupSlider
           initialValues={{
@@ -138,7 +139,8 @@ const App = () => {
     placeholder: 'Waiting for description of range {{range}}',
     leftText: 'Description of {{range}}: '
   }}
-/>`}</pre>
+/>`}
+          </pre>
         </div>
         <GroupSlider
           descriptionConfig={{
@@ -155,7 +157,8 @@ const App = () => {
     leftAddonText: 'Description of {{range}}: ', // addonText only works with type='input'
     type: 'input'
   }}
-/>`}</pre>
+/>`}
+          </pre>
         </div>
         <GroupSlider
           descriptionConfig={{
@@ -171,7 +174,8 @@ const App = () => {
   descriptionConfig={{
     type: 'none'
   }}
-/>`}</pre>
+/>`}
+          </pre>
         </div>
         <GroupSlider
           descriptionConfig={{

@@ -71,7 +71,7 @@ describe(`<GroupSlider
   })
 })
 
-describe(`Add Range`, () => {
+describe('Add Range', () => {
   const component = mount(
     <GroupSlider
       initialValues={{
@@ -104,7 +104,7 @@ describe(`Add Range`, () => {
   })
 })
 
-describe(`Remove Range`, () => {
+describe('Remove Range', () => {
   const component = mount(
     <GroupSlider
       initialValues={{

@@ -21,18 +21,19 @@ const TooltipAddButton = ({ children }) => {
 const GroupSlider = ({ min = DEFAULT_LEFT, max = DEFAULT_RIGHT, ...props }) => {
   const [ranges, setRanges] = useState([[min, max]])
   const [descriptions, setDescriptions] = useState([])
-
+  const [lineExtras, setLineExtras] = useState([])
   useEffect(() => {
     if (props.initialValues) {
+      setLineExtras(lineExtras.lineExtras)
       const processedInitialValues = fillGaps(
         props.initialValues,
         props.initialValuesConfig
       )
       const { ranges, descriptions } = processedInitialValues
-      // set leftMost & rightMost value to equal min & max 
+      // set leftMost & rightMost value to equal min & max
       const leftMost = ranges[0][0]
       ranges[0][0] = Math.max(min, leftMost)
-      const lastIndex =  ranges.length - 1
+      const lastIndex = ranges.length - 1
       const rightMost = ranges[lastIndex][1]
       ranges[lastIndex][1] = Math.min(max, rightMost)
 
@@ -42,9 +43,9 @@ const GroupSlider = ({ min = DEFAULT_LEFT, max = DEFAULT_RIGHT, ...props }) => {
   }, [])
 
   useEffect(() => {
-    ranges[0][0] = min   
+    ranges[0][0] = min
   }, [min])
-  
+
   const isFullRange = () => {
     const values = new Set()
     ranges.forEach((r) => {
@@ -91,11 +92,12 @@ const GroupSlider = ({ min = DEFAULT_LEFT, max = DEFAULT_RIGHT, ...props }) => {
             onAfterRangeChange={(data) => syncNewRange(data, i)}
             updateDescription={(data) => updateDescription(data, i)}
             initialDescription={descriptions[i]}
+            extra={props.lineExtras?.[i]}
             value={range}
             max={max}
             min={min}
           />
-          {props.showDivider ? <Divider /> : <React.Fragment />}
+          {props.showDivider ? <Divider /> : <></>}
         </React.Fragment>
       )
     })
@@ -104,7 +106,7 @@ const GroupSlider = ({ min = DEFAULT_LEFT, max = DEFAULT_RIGHT, ...props }) => {
   const isAbleToAddRange = () => {
     const lastIndex = ranges.length - 1
     const rightMost = ranges[lastIndex][1]
-    return  rightMost > max - 1
+    return rightMost > max - 1
   }
 
   const cannotRemoveRange = () => {
@@ -138,11 +140,9 @@ const GroupSlider = ({ min = DEFAULT_LEFT, max = DEFAULT_RIGHT, ...props }) => {
       {renderPointRangeGroupLine()}
       <Row className='antd-group-slider__footer' gutter={4}>
         <Col span={12}>
-          {isFullRange() ? (
-            <TooltipAddButton>{addButton}</TooltipAddButton>
-          ) : (
-            addButton
-          )}
+          {isFullRange()
+            ? <TooltipAddButton>{addButton}</TooltipAddButton>
+            : addButton}
         </Col>
         <Col span={12}>
           <Button
